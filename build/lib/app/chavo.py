@@ -1,7 +1,11 @@
-__version__ = "0.1.1"
+__version__ = "0.1.3"
 
 import sys
-from .packages import *
+import os
+sys.path.append(os.path.dirname(__file__) + "/package_store")
+print 'this is the first \n'
+print sys.path
+from package_store import *
 
 class main:
 	def __init__(self):

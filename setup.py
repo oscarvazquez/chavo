@@ -1,10 +1,10 @@
 import re
-from setuptools import setup
+from setuptools import setup, find_packages
 
 
 version = re.search(
    '^__version__\s*=\s*"(.*)"',
-   open('chavo/chavo.py').read(),
+   open('app/chavo.py').read(),
    re.M
    ).group(1)
 
@@ -12,12 +12,11 @@ version = re.search(
 with open("README.rst", "rb") as f:
    long_descr = f.read().decode("utf-8")
 
-
 setup(
    name = "chavo",
-   packages = ["chavo"],
+   packages = find_packages(),
    entry_points = {
-       "console_scripts": ['chavo = chavo.chavo:main']
+       "console_scripts": ['chavo = app.chavo:main']
        },
    version = version,
    description = "Command line html creator",

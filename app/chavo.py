@@ -1,10 +1,7 @@
-__version__ = "0.1.3"
+__version__ = "0.1.6"
 
 import sys
 import os
-sys.path.append(os.path.dirname(__file__) + "/package_store")
-print 'this is the first \n'
-print sys.path
 from package_store import *
 
 class main:
