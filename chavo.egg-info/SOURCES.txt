@@ -1,0 +1,10 @@
+README.rst
+setup.py
+chavo/__init__.py
+chavo/__main__.py
+chavo/chavo.py
+chavo.egg-info/PKG-INFO
+chavo.egg-info/SOURCES.txt
+chavo.egg-info/dependency_links.txt
+chavo.egg-info/entry_points.txt
+chavo.egg-info/top_level.txt
