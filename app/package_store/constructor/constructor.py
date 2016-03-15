@@ -10,30 +10,34 @@ class main:
 		f = open(filename, 'w')
 		return f
 
-	def create_head(self, f, front_end=False):
+	def create_head(self, f, front_end=False, custom_style=False):
 		f.write("<!DOCTYPE html>\n")
 		f.write("<html>\n")
 		f.write("<head>\n")
-		f.write("<meta charset='UTF-8'>")
+		f.write("\t<meta charset='UTF-8'>\n")
 		title = raw_input("Title? ")
 		f.write("\t<title>" + title + "</title>\n")
 		if front_end:
 			if front_end == 'bootstrap':
 				self.bootstrap(f)
 			elif front_end == 'materialize':
-				self.front_end(f)
+				self.materialize(f)
 			else:
 				print 'only bootstrap and materialize for now'
-
+		if custom_style:
+			f.write(custom_style)
 		f.write("</head>\n")
+		f.write("<body>\n")
 
-	def create_bottom(self, f, front_end=False):
+	def create_bottom(self, f, front_end=False, custom_js=False):
 		if front_end:
 			self.jquery(f)
 			if front_end == 'bootstrap':
 				self.bootstrapjs(f)
 			elif front_end == 'materialize':
 				self.materializejs(f)
+		if custom_js:
+			f.write(custom_js)
 		f.write("</body>\n")
 		f.write("</html>")
 

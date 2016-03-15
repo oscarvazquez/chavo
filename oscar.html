@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='UTF-8'>
+	<title>awesome</title>
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.css'>
+	<!-- This is the css overrides for the page, keep it here or extract it to a css page -->
+<style>
+ nav ul a,
+ nav .brand-logo {
+ 	color: #444;
+ }
+ p {
+ 	line-height: 2rem;
+ }
+ .button-collapse {
+ 	color: #26a69a;
+ }
+ .parallax-container {
+ 	min-height: 380px;
+ 	line-height: 0;
+ 	height: auto;
+ 	color: rgba(255,255,255,.9);
+ }
+ 	.parallax-container .section {
+ 		width: 100%;
+ }
+ @media only screen and (max-width : 992px) {
+ 	.parallax-container .section {
+ 		position: absolute;
+ 		top: 40%;
+ 	}
+ 	#index-banner .section {
+ 		top: 10%;
+ 	}
+ }
+ @media only screen and (max-width : 600px) {
+ 	#index-banner .section {
+ 		top: 0;
+ 	}
+ }
+ .icon-block {
+ 	padding: 0 15px;
+ }
+ .icon-block .material-icons {
+ 	font-size: inherit;
+ }
+ footer.page-footer {
+ 	margin: 0;
+ }
+ </style>
+	<!-- This was the css overrides for the page, keep it here or extract it to a css page -->
+</head>
+<body>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.js'></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js'></script>
+// This is what sets up the parallax and side NAV extract this code to another page
+ (function($){
+ 	$(function(){
+ 		$('.button-collapse').sideNav();
+ 		$('.parallax').parallax();
+ 	});
+ })(jQuery);
+ // This is what sets up the parallax and side NAV extract this code to another page
+</body>
+</html>
