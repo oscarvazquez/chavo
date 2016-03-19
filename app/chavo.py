@@ -1,4 +1,4 @@
-__version__ = "0.1.6"
+__version__ = "0.1.7"
 
 import sys
 import os
@@ -9,7 +9,7 @@ class main:
 		if len(sys.argv) > 1:
 			self.check_packages()
 		else:
-			print 'No function called, available packages:\n \toscar'
+			print 'No function called, available packages:\n\toscar'
 
 	def check_packages(self):
 		if sys.argv[1] == 'oscar':

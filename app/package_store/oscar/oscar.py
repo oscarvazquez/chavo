@@ -4,7 +4,7 @@ from components import *
 class Oscar:
 	def __init__(self, args):
 		if len(args) < 1:
-			print "You did not provide a package name: \n Oscar's available packages are: \n bootsrap_form ---> \t simple bootstrap form\n materialize_form ---> \t simple materialize form\n materialize_skeleton ---> \t simple materialize skeleton" 
+			print "You did not provide a package name: \n Oscar's available packages are: \n bootsrap_form ---> \t simple bootstrap form\n materialize_form ---> \t simple materialize form\n materialize_skeleton ---> \t simple materialize skeleton\n portfolio_page ---> \t Portfolio Template Materialize" 
 		else: 
 			self.c = Construct()
 			self.arg = args
