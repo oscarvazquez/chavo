@@ -49,7 +49,7 @@ class m_form:
 	def create_top(self):
 		self.file.write("<div class='col m6'>\n")
 		self.file.write("\t<div class = 'row'>\n")
-		self.file.write("\t\t<form class = 'col s12' method = 'post' action = " + self.action + ">\n")
+		self.file.write("\t\t<form class = 'col s12' method = 'post' action = '" + self.action + "'>\n")
 
 	def create_bottom(self):
 		self.file.write("\t\t\t<div class='divider'></div>\n")
@@ -58,4 +58,7 @@ class m_form:
 		self.file.write("\t\t\t\t\t<p class='right-align'><button class='btn btn-large waves-effect waves-light' type='button' name='action'>" + self.button +"</button></p>\n")
 		self.file.write("\t\t\t\t</div>\n")
 		self.file.write("\t\t\t</div>\n")
+		self.file.write("\t\t</form>\n")
+		self.file.write("\t</div>\n")
+		self.file.write("</div>\n")
 
