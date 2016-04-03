@@ -31,13 +31,27 @@ class Oscar:
 			self.portfolio_page()
 		elif self.arg[0] == 'add':
 			self.check_add_components()
+		else:
+			print 'package not found \n'
+			print "Oscar's packages: \n Oscar's available packages are: \n bootsrap_form ---> \t simple bootstrap form\n materialize_form ---> \t simple materialize form\n materialize_skeleton ---> \t simple materialize skeleton\n portfolio_page ---> \t Portfolio Template Materialize\n add ---> \t Add html to an existing page" 
+
 
 	def check_add_components(self):
 		# what do I need so that I can make this work from my constructor?
 			# the name of the file being edited
 			# the class you are using to create the component
-		if self.arg[1] == 'materialize_form':
-			self.c.add_to_file(self.arg, m_form)
+		if len(self.arg) < 3:
+			print 'Too few arguments you must provide component name and html page you are altering in that order\n'
+			print "Components you can add: \n bootsrap_form ---> \t simple bootstrap form\n materialize_form ---> \t simple materialize form\n"
+		else: 
+			if self.arg[1] == 'materialize_form':
+				self.c.add_to_file(self.arg, m_form)
+			elif self.arg[1] == 'bootstrap_form':
+				self.c.add_to_file(self.arg, b_form)
+			elif self.arg[1] == 'boot_box':
+				self.c.add_to_file(self.arg, boot_box)
+			elif self.arg[1] == 'boot_nav':
+				self.c.add_to_file(self.arg, boot_nav, 'nav.css')
 			# newFile = tempfile.TemporaryFile()
 			# f = open(self.arg[2], 'r+')
 			# for lines in f.readlines():

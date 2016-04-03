@@ -5,10 +5,18 @@ class main:
 	def __init__(self):
 		self.started = True
 
-	def add_to_file(self, arg, className):
+	def add_to_file(self, arg, className, style=False):
 		newFile = tempfile.TemporaryFile()
 		f = open(arg[2], 'r+')
 		for lines in f.readlines():
+			if style:
+				if '#chavostyle' in lines:
+					line = lines.strip('#chavostyle\n')
+					newFile.write(line + "<!-- ######### This is your new stylesheet ######### -->\n")
+					newFile.write(line + '<link rel="stylesheet" type="text/css" href="/{link}">\n'.format(link=style))
+					newFile.write(line + "<!-- ######### This is your new stylesheet ######### -->\n")
+					continue
+
 			if '#chavo' in lines:
 				tempFile = tempfile.TemporaryFile()
 				element = className(tempFile, arg[2:])
@@ -17,7 +25,7 @@ class main:
 				newFile.write(line + "<!-- ######### This is your new component ######### -->\n")
 				for newLine in tempFile.readlines():
 					newFile.write(line + newLine)
-				newFile.write(line + "<!-- ######### This is your new component ######### -->")
+				newFile.write(line + "\n<!-- ######### This is your new component ######### -->\n")
 				tempFile.close()
 			else:
 				newFile.write(lines)
@@ -27,7 +35,12 @@ class main:
 		for doneLines in newFile.readlines():
 			f.write(doneLines)
 		f.close()
-		newFile.close()		
+		newFile.close()
+		if style:
+			os.system('touch ' + style)
+			sf = open(style, 'w')
+			element.create_style(sf)
+			sf.close()
 
 	def create_file(self):
 		filename = raw_input("Filename? ")

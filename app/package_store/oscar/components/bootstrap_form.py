@@ -15,11 +15,6 @@ class b_form:
 		for x in self.inputs:
 			self.create_field_set(x)
 		self.create_bottom()
-
-	def create_top(self):
-		self.file.write("<body>\n")
-		self.file.write("<div class = 'col-lg-6'>\n")
-		self.file.write("\t<form action = '" + self.action + "' method = 'post'>\n")
 	
 	def create_field_set(self,x):
 		if ':' in x:
@@ -42,8 +37,8 @@ class b_form:
 	
 	def create_bottom(self):
 		self.file.write("\t\t<fieldset class = 'form-group'>\n")
-		self.file.write("\t\t\t<input type = 'submit' class = 'btn' value = " + self.button + ">\n")
-		self.file.write("\t</fieldset>\n")
+		self.file.write("\t\t\t<input type = 'submit' class = 'btn' value = '" + self.button + "'>\n")
+		self.file.write("\t\t</fieldset>\n")
 		self.file.write("\t</form>\n")
 		self.file.write("</div>\n")
 
@@ -53,17 +48,11 @@ class b_form:
 		return la
 
 	def create_top(self):
-		self.file.write("<div class='col m6'>\n")
+		self.file.write("<div class='col-md-6'>\n")
 		self.file.write("\t<div class = 'row'>\n")
-		self.file.write("\t\t<form class = 'col s12' method = 'post' action = " + self.action + ">\n")
+		self.file.write("\t\t<form class = 'col-sm-12' method = 'post' action = '" + self.action + "'>\n")
 
-	def create_bottom(self):
-		self.file.write("\t\t\t<div class='divider'></div>\n")
-		self.file.write("\t\t\t<div class = 'row'>\n")
-		self.file.write("\t\t\t\t<div class = 'col md12'>\n")
-		self.file.write("\t\t\t\t\t<p class='right-align'><button class='btn btn-large' type='button' name='action'>" + self.button +"</button></p>\n")
-		self.file.write("\t\t\t\t</div>\n")
-		self.file.write("\t\t\t</div>\n")
+
 
 	def getFile(self):
 		print self.file.read()
