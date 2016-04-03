@@ -1,5 +1,7 @@
 from ..constructor import *
 import sys
+import tempfile
+import fileinput
 from components import *
 class Oscar:
 	def __init__(self, args):
@@ -11,17 +13,54 @@ class Oscar:
 			self.check_components()
 
 	def check_components(self):
-		self.f = self.c.create_file()
+		print 'its going in here'
 		if self.arg[0] == 'bootstrap_form':
+			self.f = self.c.create_file()
 			self.boot_form()
 		elif self.arg[0] == 'materialize_form':
+			self.f = self.c.create_file()
 			self.mate_form()
 		elif self.arg[0] == 'materialize_skeleton':
+			self.f = self.c.create_file()			
 			self.materialize_skeleton()
 		elif self.arg[0] == 'bootstrap_skeleton':
+			self.f = self.c.create_file()			
 			self.bootstrap_skeleton()
 		elif self.arg[0] == 'portfolio_page':
+			self.f = self.c.create_file()			
 			self.portfolio_page()
+		elif self.arg[0] == 'add':
+			self.check_add_components()
+
+	def check_add_components(self):
+		# what do I need so that I can make this work from my constructor?
+			# the name of the file being edited
+			# the class you are using to create the component
+		if self.arg[1] == 'materialize_form':
+			self.c.add_to_file(self.arg, m_form)
+			# newFile = tempfile.TemporaryFile()
+			# f = open(self.arg[2], 'r+')
+			# for lines in f.readlines():
+			# 	if '#chavo' in lines:
+			# 		tempFile = tempfile.TemporaryFile()
+			# 		element = m_form(tempFile, self.arg[2:])
+			# 		tempFile.seek(0)
+			# 		line = lines.strip('#chavo\n')
+			# 		newFile.write(line + "<!-- ######### This is your new component ######### -->\n")
+			# 		for newLine in tempFile.readlines():
+			# 			newFile.write(line + newLine)
+			# 		newFile.write(line + "<!-- ######### This is your new component ######### -->")
+			# 		tempFile.close()
+			# 	else:
+			# 		newFile.write(lines)
+			# f.seek(0)
+			# newFile.seek(0)
+			# f.truncate()
+			# for doneLines in newFile.readlines():
+			# 	f.write(doneLines)
+			# f.close()
+			# newFile.close()
+	
 
 	def boot_form(self):
 		self.c.create_head(self.f, 'bootstrap')

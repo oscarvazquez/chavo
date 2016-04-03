@@ -1,8 +1,33 @@
 import os
 import sys
+import tempfile
 class main:
 	def __init__(self):
 		self.started = True
+
+	def add_to_file(self, arg, className):
+		newFile = tempfile.TemporaryFile()
+		f = open(arg[2], 'r+')
+		for lines in f.readlines():
+			if '#chavo' in lines:
+				tempFile = tempfile.TemporaryFile()
+				element = className(tempFile, arg[2:])
+				tempFile.seek(0)
+				line = lines.strip('#chavo\n')
+				newFile.write(line + "<!-- ######### This is your new component ######### -->\n")
+				for newLine in tempFile.readlines():
+					newFile.write(line + newLine)
+				newFile.write(line + "<!-- ######### This is your new component ######### -->")
+				tempFile.close()
+			else:
+				newFile.write(lines)
+		f.seek(0)
+		newFile.seek(0)
+		f.truncate()
+		for doneLines in newFile.readlines():
+			f.write(doneLines)
+		f.close()
+		newFile.close()		
 
 	def create_file(self):
 		filename = raw_input("Filename? ")

@@ -61,6 +61,10 @@ class b_form:
 		self.file.write("\t\t\t<div class='divider'></div>\n")
 		self.file.write("\t\t\t<div class = 'row'>\n")
 		self.file.write("\t\t\t\t<div class = 'col md12'>\n")
-		self.file.write("\t\t\t\t\t<p class='right-align'><button class='btn btn-large waves-effect waves-light' type='button' name='action'>" + self.button +"</button></p>\n")
+		self.file.write("\t\t\t\t\t<p class='right-align'><button class='btn btn-large' type='button' name='action'>" + self.button +"</button></p>\n")
 		self.file.write("\t\t\t\t</div>\n")
 		self.file.write("\t\t\t</div>\n")
+
+	def getFile(self):
+		print self.file.read()
+		return self.file		

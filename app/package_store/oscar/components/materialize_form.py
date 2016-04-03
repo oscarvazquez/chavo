@@ -62,3 +62,10 @@ class m_form:
 		self.file.write("\t</div>\n")
 		self.file.write("</div>\n")
 
+	def getFile(self):
+		print 'getting file '
+		print self.file.read()
+		for x in self.file.readlines():
+			print x
+		return self.file
+
