@@ -10,10 +10,10 @@ class main:
 		f = open(arg[2], 'r+')
 		for lines in f.readlines():
 			if style:
-				if '#chavostyle' in lines:
+				if '#chastyle' in lines:
 					line = lines.strip('#chavostyle\n')
 					newFile.write(line + "<!-- ######### This is your new stylesheet ######### -->\n")
-					newFile.write(line + '<link rel="stylesheet" type="text/css" href="/{link}">\n'.format(link=style))
+					newFile.write(line + '<link rel="stylesheet" type="text/css" href="./{link}">\n'.format(link=style))
 					newFile.write(line + "<!-- ######### This is your new stylesheet ######### -->\n")
 					continue
 
@@ -25,7 +25,7 @@ class main:
 				newFile.write(line + "<!-- ######### This is your new component ######### -->\n")
 				for newLine in tempFile.readlines():
 					newFile.write(line + newLine)
-				newFile.write(line + "\n<!-- ######### This is your new component ######### -->\n")
+				newFile.write('\n' + line + "<!-- ######### This is your new component ######### -->\n")
 				tempFile.close()
 			else:
 				newFile.write(lines)

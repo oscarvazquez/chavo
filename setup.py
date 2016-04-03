@@ -15,6 +15,7 @@ with open("README.rst", "rb") as f:
 setup(
    name = "chavo",
    packages = find_packages(),
+   package_data={'': ['*.html', '*.css']},
    entry_points = {
        "console_scripts": ['chavo = app.chavo:main']
        },
